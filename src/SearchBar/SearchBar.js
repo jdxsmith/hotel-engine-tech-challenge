@@ -27,6 +27,12 @@ class SearchBar extends Component {
         <button className='search-bar-button' onClick={ event => this.props.filterRepos(event, this.state.repoName) }>
           SEARCH
         </button>
+        <button className='sort-by-stars-button' onClick={ event => this.props.sortReposByStars(event, this.state.repoName) }>
+          Sort By Stars
+        </button>
+        <button className='sort-by-match-button' onClick={ event => this.props.filterRepos(event, this.state.repoName) }>
+          Sort By Best Match
+        </button>
       </form>
     )
   }
