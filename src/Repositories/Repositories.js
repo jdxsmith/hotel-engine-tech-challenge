@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
-import './Repositories.css'
+import './Repositories.css';
+import RepositoryCard from '../RepositoryCard/RepositoryCard'
 
 class Repositories extends Component {
   constructor() {
@@ -12,7 +13,8 @@ class Repositories extends Component {
   render() {
     return(
       <section className='matched-repos'>
-        <p className='default-message'>Your search results will appear here!</p>
+        {/* <p className='default-message'>Your search results will appear here!</p> */}
+        <RepositoryCard />
       </section>
     )
   }
