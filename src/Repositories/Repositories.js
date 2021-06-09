@@ -3,8 +3,8 @@ import './Repositories.css';
 import RepositoryCard from '../RepositoryCard/RepositoryCard'
 
 class Repositories extends Component {
-  constructor() {
-    super()
+  constructor(props) {
+    super(props)
     this.state = {
       // matchedRepos: []
     }
@@ -14,7 +14,11 @@ class Repositories extends Component {
     return(
       <section className='matched-repos'>
         {/* <p className='default-message'>Your search results will appear here!</p> */}
-        <RepositoryCard />
+        {this.props.matchedRepos.map(repo => {
+          return(
+            <RepositoryCard />
+          )
+        })}
       </section>
     )
   }

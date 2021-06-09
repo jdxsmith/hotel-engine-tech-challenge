@@ -3,23 +3,15 @@ import './SearchBar.css';
 import matchingRepos from '../apiCalls'
 
 class SearchBar extends Component {
-  constructor() {
-    super()
+  constructor(props) {
+    super(props)
     this.state = {
       repoName: '',
-      matchedRepos: []
     }
   }
 
   handleInput = (event) => {
     this.setState({ [event.target.name]: event.target.value });
-  }
-
-  filterRepos = async (event) => {
-    event.preventDefault();
-    await matchingRepos()
-    .then(matchingRepos => this.setState({ matchedRepos: matchingRepos.items }))
-    .catch(error => console.log(error))
   }
 
   render() {
@@ -32,7 +24,7 @@ class SearchBar extends Component {
           value={ this.state.repoName }
           onChange={ event => this.handleInput(event) }
         />
-        <button className='search-bar-button' onClick={ event => this.filterRepos(event) }>
+        <button className='search-bar-button' onClick={ event => this.props.filterRepos(event) }>
           SEARCH
         </button>
       </form>
