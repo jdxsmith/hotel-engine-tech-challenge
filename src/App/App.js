@@ -2,7 +2,7 @@ import './App.css';
 import { Component } from 'react';
 import SearchBar from '../SearchBar/SearchBar';
 import Repositories from '../Repositories/Repositories';
-import matchingRepos from '../apiCalls';
+import { matchingRepos } from '../apiCalls';
 
 class App extends Component {
   constructor() {
