@@ -12,9 +12,9 @@ class App extends Component {
     }
   }
 
-  filterRepos = async (event) => {
+  filterRepos = async (event, search) => {
     event.preventDefault();
-    await matchingRepos()
+    await matchingRepos(search)
     .then(matchingRepos => this.setState({ matchedRepos: matchingRepos.items }))
     .catch(error => console.log(error))
   }
@@ -23,8 +23,8 @@ class App extends Component {
     return(
       <section classname='app'>
         <h1 className='page-title'>GitHub Repository Search Engine</h1>
-        <SearchBar filterRepos={ this.filterRepos }/>
-        <Repositories matchedRepos={ this.state.matchedRepos }/>
+        <SearchBar filterRepos={ this.filterRepos } />
+        <Repositories matchedRepos={ this.state.matchedRepos } />
       </section>
     )
   }

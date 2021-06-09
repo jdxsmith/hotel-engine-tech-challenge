@@ -24,7 +24,7 @@ class SearchBar extends Component {
           value={ this.state.repoName }
           onChange={ event => this.handleInput(event) }
         />
-        <button className='search-bar-button' onClick={ event => this.props.filterRepos(event) }>
+        <button className='search-bar-button' onClick={ event => this.props.filterRepos(event, this.state.repoName) }>
           SEARCH
         </button>
       </form>
