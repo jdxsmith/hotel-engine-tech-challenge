@@ -4,6 +4,7 @@ import SearchBar from '../SearchBar/SearchBar';
 import Repositories from '../Repositories/Repositories';
 import { matchingRepos } from '../apiCalls';
 import { matchingReposByStars } from '../apiCalls';
+import { matchingReposByLanguage } from '../apiCalls';
 
 class App extends Component {
   constructor() {
@@ -27,13 +28,21 @@ class App extends Component {
     .catch(error => console.log(error))
   }
 
+  filterByLanguage = async (event, search, language) => {
+    event.preventDefault();
+    await matchingReposByLanguage(search, language)
+    .then(matchingRepos => this.setState({ matchedRepos: matchingRepos.items }))
+    .catch(error => console.log(error))
+  }
+
   render() {
     return(
       <section classname='app'>
         <h1 className='page-title'>GitHub Repository Search Engine</h1>
         <SearchBar
           filterRepos={ this.filterRepos }
-          sortReposByStars = { this.sortReposByStars }
+          sortReposByStars={ this.sortReposByStars }
+          filterByLanguage={ this.filterByLanguage }
         />
         <Repositories matchedRepos={ this.state.matchedRepos } />
       </section>

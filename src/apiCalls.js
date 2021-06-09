@@ -8,4 +8,9 @@ const matchingReposByStars = (search) => {
   .then(response => response.json())
 }
 
-export { matchingRepos, matchingReposByStars };
+const matchingReposByLanguage = (search, language) => {
+  return fetch(`https://api.github.com/search/repositories?q=${search}+language:${language}`)
+  .then(response => response.json())
+}
+
+export { matchingRepos, matchingReposByStars, matchingReposByLanguage };
