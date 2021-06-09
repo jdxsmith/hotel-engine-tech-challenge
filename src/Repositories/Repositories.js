@@ -6,7 +6,7 @@ class Repositories extends Component {
   constructor() {
     super()
     this.state = {
-      matchedRepos: []
+      // matchedRepos: []
     }
   }
 

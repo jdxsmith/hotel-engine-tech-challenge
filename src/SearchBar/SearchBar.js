@@ -1,16 +1,25 @@
 import React, { Component } from 'react';
-import './SearchBar.css'
+import './SearchBar.css';
+import matchingRepos from '../apiCalls'
 
 class SearchBar extends Component {
   constructor() {
     super()
     this.state = {
-      repoName: ''
+      repoName: '',
+      matchedRepos: []
     }
   }
 
   handleInput = (event) => {
     this.setState({ [event.target.name]: event.target.value });
+  }
+
+  filterRepos = async (event) => {
+    event.preventDefault();
+    await matchingRepos()
+    .then(matchingRepos => this.setState({ matchedRepos: matchingRepos.items }))
+    .catch(error => console.log(error))
   }
 
   render() {
