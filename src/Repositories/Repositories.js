@@ -16,7 +16,10 @@ class Repositories extends Component {
         {/* <p className='default-message'>Your search results will appear here!</p> */}
         {this.props.matchedRepos.map(repo => {
           return(
-            <RepositoryCard />
+            <RepositoryCard 
+              matchedRepo={ repo }
+              key={ repo.id }
+            />
           )
         })}
       </section>

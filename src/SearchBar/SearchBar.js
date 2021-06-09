@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import './SearchBar.css';
-import matchingRepos from '../apiCalls'
+// import matchingRepos from '../apiCalls'
 
 class SearchBar extends Component {
   constructor(props) {
