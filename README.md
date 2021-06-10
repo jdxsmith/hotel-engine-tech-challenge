@@ -19,7 +19,7 @@
 ## Cypress Tests
 
 - In the main directory, run `npx cypress open`
-- Run the integration test titled 'App_spec.js'
+- Run the integration test titled `App_spec.js`
 
 ![Cypress-GitHubRepoEngine](https://user-images.githubusercontent.com/67242223/121563993-36890380-c9d8-11eb-888a-e22cb53a3ae6.gif)
 
