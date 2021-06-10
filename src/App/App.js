@@ -5,6 +5,7 @@ import Repositories from '../Repositories/Repositories';
 import { matchingRepos } from '../apiCalls';
 import { matchingReposByStars } from '../apiCalls';
 import { matchingReposByLanguage } from '../apiCalls';
+import { Switch, Route } from 'react-router-dom';
 
 class App extends Component {
   constructor() {
@@ -38,13 +39,25 @@ class App extends Component {
   render() {
     return(
       <section classname='app'>
-        <h1 className='page-title'>GitHub Repository Search Engine</h1>
-        <SearchBar
-          filterRepos={ this.filterRepos }
-          sortReposByStars={ this.sortReposByStars }
-          filterByLanguage={ this.filterByLanguage }
-        />
-        <Repositories matchedRepos={ this.state.matchedRepos } />
+        <Switch>
+          <Route
+            exact
+            path='/'
+            render={ () => {
+              return(
+                <section>
+                  <h1 className='page-title'>GitHub Repository Search Engine</h1>
+                  <SearchBar
+                    filterRepos={ this.filterRepos }
+                    sortReposByStars={ this.sortReposByStars }
+                    filterByLanguage={ this.filterByLanguage }
+                  />
+                  <Repositories matchedRepos={ this.state.matchedRepos } />
+                </section>
+              )
+            }}
+          />
+        </Switch>
       </section>
     )
   }
