@@ -1,8 +1,12 @@
-/* .matched-repos {
-
-} */
-
 .default-message {
   display: flex;
   justify-content: center;
+}
+
+.matched-repos {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  grid-gap: 20px;
+  place-items: center;
+  padding: 60px;
 }

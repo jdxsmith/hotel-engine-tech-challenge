@@ -2,9 +2,9 @@ import './App.css';
 import { Component } from 'react';
 import SearchBar from '../SearchBar/SearchBar';
 import Repositories from '../Repositories/Repositories';
-import { matchingRepos } from '../apiCalls';
-import { matchingReposByStars } from '../apiCalls';
-import { matchingReposByLanguage } from '../apiCalls';
+import { matchingRepos, matchingReposByStars, matchingReposByLanguage } from '../apiCalls';
+// import { matchingReposByStars } from '../apiCalls';
+// import { matchingReposByLanguage } from '../apiCalls';
 import { Switch, Route } from 'react-router-dom';
 
 class App extends Component {

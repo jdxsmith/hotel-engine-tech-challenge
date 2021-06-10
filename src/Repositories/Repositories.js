@@ -5,15 +5,14 @@ import RepositoryCard from '../RepositoryCard/RepositoryCard'
 class Repositories extends Component {
   constructor(props) {
     super(props)
-    this.state = {
-      // matchedRepos: []
-    }
   }
 
   render() {
     return(
       <section className='matched-repos'>
-        {/* <p className='default-message'>Your search results will appear here!</p> */}
+        {this.props.matchedRepos.length === 0 &&
+          <p className='default-message'>Your search results will appear here!</p>
+        }
         {this.props.matchedRepos.map(repo => {
           return(
             <RepositoryCard 
