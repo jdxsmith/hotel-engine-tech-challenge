@@ -3,10 +3,30 @@
   flex-direction: column;
   justify-content: center;
   align-items: center;
+  background-color: #161B22;
+  margin: auto;
+  margin-top: 60px;
+  height: 50vh;
+  width: 50vw;
+  border-radius: 5px;
+  box-shadow: 4px 4px black;
+  color: white;
+  font-size: 3vh;
+  font-weight: bold;
+  padding: 6vw;
 }
 
 .return-to-search-button {
-
+  width: 20vw;
+  margin: 10px;
+  padding: 10px;
+  background-color: #0C1117;
+  border-width: 2px;
+  border-radius: 2px;
+  border-style: solid;
+  color: #58A6FF;
+  font-weight: bold;
+  font-size: 2.5vh;
 }
 
 .return-to-search-button:hover {

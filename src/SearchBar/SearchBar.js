@@ -26,7 +26,7 @@ class SearchBar extends Component {
             onChange={ event => this.handleInput(event) }
           />
           <button className='search-bar-button' onClick={ event => this.props.filterRepos(event, this.state.repoName) }>
-            SEARCH
+            Search
           </button>
         </form>
         <section className='sort-and-filter-section'>
