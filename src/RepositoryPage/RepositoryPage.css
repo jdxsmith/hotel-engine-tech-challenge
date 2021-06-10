@@ -1,0 +1,14 @@
+.repository-page {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.return-to-search-button {
+
+}
+
+.return-to-search-button:hover {
+  cursor: pointer;
+}

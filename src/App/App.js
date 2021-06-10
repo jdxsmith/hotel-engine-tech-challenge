@@ -2,9 +2,8 @@ import './App.css';
 import { Component } from 'react';
 import SearchBar from '../SearchBar/SearchBar';
 import Repositories from '../Repositories/Repositories';
+import RepositoryPage from '../RepositoryPage/RepositoryPage'
 import { matchingRepos, matchingReposByStars, matchingReposByLanguage } from '../apiCalls';
-// import { matchingReposByStars } from '../apiCalls';
-// import { matchingReposByLanguage } from '../apiCalls';
 import { Switch, Route } from 'react-router-dom';
 
 class App extends Component {
@@ -52,7 +51,27 @@ class App extends Component {
                     sortReposByStars={ this.sortReposByStars }
                     filterByLanguage={ this.filterByLanguage }
                   />
-                  <Repositories matchedRepos={ this.state.matchedRepos } />
+                  <Repositories 
+                    matchedRepos={ this.state.matchedRepos }
+                  />
+                </section>
+              )
+            }}
+          />
+          <Route
+            exact
+            path='/:id'
+            render={ ({match}) => {
+              const repoId = parseInt(match.params.id)
+              const selectedRepo = this.state.matchedRepos.find(repo => {
+                return repo.id === repoId
+              })
+              return(
+                <section className='selected-repo-page'>
+                  <RepositoryPage
+                    selectedRepo={ selectedRepo } 
+                    id={ repoId }
+                  />
                 </section>
               )
             }}
