@@ -2,6 +2,7 @@ import './App.css';
 import { Component } from 'react';
 import SearchBar from '../SearchBar/SearchBar';
 import Repositories from '../Repositories/Repositories';
+import RepositoryPage from '../RepositoryPage/RepositoryPage'
 import { matchingRepos, matchingReposByStars, matchingReposByLanguage } from '../apiCalls';
 import { Switch, Route } from 'react-router-dom';
 
@@ -9,7 +10,8 @@ class App extends Component {
   constructor() {
     super()
     this.state = {
-      matchedRepos: []
+      matchedRepos: [],
+      // currentRepo: {}
     }
   }
 
@@ -50,7 +52,9 @@ class App extends Component {
                     sortReposByStars={ this.sortReposByStars }
                     filterByLanguage={ this.filterByLanguage }
                   />
-                  <Repositories matchedRepos={ this.state.matchedRepos } />
+                  <Repositories 
+                    matchedRepos={ this.state.matchedRepos }
+                  />
                 </section>
               )
             }}
@@ -65,8 +69,10 @@ class App extends Component {
               })
               return(
                 <section className='selected-repo-page'>
-                  <p className='selected-repo-name'>{selectedRepo.name}</p>
-                  {/* <RepoDetails selectedRepo={selectedRepo} id={ repoId }/> */}
+                  <RepositoryPage
+                    selectedRepo={ selectedRepo } 
+                    id={ repoId }
+                  />
                 </section>
               )
             }}
