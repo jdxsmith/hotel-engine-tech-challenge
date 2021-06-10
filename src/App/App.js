@@ -3,8 +3,6 @@ import { Component } from 'react';
 import SearchBar from '../SearchBar/SearchBar';
 import Repositories from '../Repositories/Repositories';
 import { matchingRepos, matchingReposByStars, matchingReposByLanguage } from '../apiCalls';
-// import { matchingReposByStars } from '../apiCalls';
-// import { matchingReposByLanguage } from '../apiCalls';
 import { Switch, Route } from 'react-router-dom';
 
 class App extends Component {
@@ -53,6 +51,22 @@ class App extends Component {
                     filterByLanguage={ this.filterByLanguage }
                   />
                   <Repositories matchedRepos={ this.state.matchedRepos } />
+                </section>
+              )
+            }}
+          />
+          <Route
+            exact
+            path='/:id'
+            render={ ({match}) => {
+              const repoId = parseInt(match.params.id)
+              const selectedRepo = this.state.matchedRepos.find(repo => {
+                return repo.id === repoId
+              })
+              return(
+                <section className='selected-repo-page'>
+                  <p className='selected-repo-name'>{selectedRepo.name}</p>
+                  {/* <RepoDetails selectedRepo={selectedRepo} id={ repoId }/> */}
                 </section>
               )
             }}
